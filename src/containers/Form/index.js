@@ -22,6 +22,7 @@ const Form = ({ onSuccess, onError }) => {
         onError(err);
       }
     },
+    [onSuccess, onError]
   );
   return (
     <form onSubmit={sendContact}>
@@ -37,7 +38,7 @@ const Form = ({ onSuccess, onError }) => {
             titleEmpty
           />
           <Field placeholder="" label="Email" />
-          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending} onClick={sendContact}>
             {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>
