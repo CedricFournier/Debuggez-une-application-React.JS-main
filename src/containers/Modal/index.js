@@ -5,6 +5,12 @@ import "./style.scss";
 
 const Modal = ({ opened, Content, children }) => {
   const [isOpened, setIsOpened] = useState(opened);
+  if(isOpened === true) {
+    document.querySelector("body").style="overflow:hidden";
+  } else {
+    document.querySelector("body").style="overflow:none";
+  };
+
   return (
     <>
       {children({ isOpened, setIsOpened })}
