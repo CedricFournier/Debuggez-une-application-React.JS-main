@@ -41,7 +41,7 @@ describe("When a page is created", () => {
     render(<Home />);
     await screen.findByText("Contactez-nous");
   })
-  it("an event card, with the last event, is displayed", async() => {
+  it("an event card, with the last event, is displayed", () => {
     
-  })
+  });
 });
