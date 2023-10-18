@@ -4,10 +4,11 @@ import "./style.scss";
 
 export const FIELD_TYPES = {
   INPUT_TEXT: 1,
-  TEXTAREA: 2,
+  INPUT_MAIL: 2,
+  TEXTAREA: 3
 };
 
-const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
+const Field = ({ type, label, name, placeholder }) => {
   let component;
   switch (type) {
     case FIELD_TYPES.INPUT_TEXT:
@@ -16,6 +17,18 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
           type="text"
           name={name}
           placeholder={placeholder}
+          required
+          data-testid="field-testid"
+        />
+      );
+      break;
+    case FIELD_TYPES.INPUT_MAIL:
+      component = (
+        <input
+          type="mail"
+          name={name}
+          placeholder={placeholder}
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
           required
           data-testid="field-testid"
         />
